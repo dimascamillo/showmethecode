@@ -1,6 +1,8 @@
 export const defaultTheme = {
   white: 'white',
 
+  'black-300': '#1a1a1a',
+
   'gray-100': '#E1E1E6',
   'gray-300': '#C4C4CC',
   'gray-400': '#8D8D99',
@@ -22,4 +24,8 @@ export const defaultTheme = {
   'yellow-500': '#FBA94C',
 
   'display-flex-space-between': 'display: flex; justify-content: space-between; align-items: center;',
+  'display-flex-flex-direction-column': 'display: flex; align-items: center; flex-direction: column;',
+  'align-full-content': 'margin: auto;',
+  'container': "max-width: 40rem; margin: auto;",
+  'transition': "transition: .5s all",
 }

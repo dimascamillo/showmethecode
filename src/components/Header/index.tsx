@@ -1,15 +1,25 @@
-import { List } from "phosphor-react";
-import { LogoHeader, TagHeader } from "./styles";
+import { List, X } from "phosphor-react";
+import { NavLink } from "react-router-dom";
+import { LogoHeader, TagHeader, Container, Menu } from "./styles";
 
-interface PropsHeader {
-  content: string;
-}
+import logoShowMeTheCode from '../../assets/logo-header-show-me-the-code.svg';
 
-export function Header({content = "Show me the <code/>"}: PropsHeader) {
+export function Header(){
   return (
     <TagHeader>
-      <LogoHeader>{content}</LogoHeader>
-      <List size={20} color="white"/>
+      <Container>
+        <LogoHeader src={logoShowMeTheCode}/>
+        <List size={20} color="white" />
+        <Menu id="menu">
+          <X size={20} color="white" className="closeMenu" />
+          <NavLink to="/">
+            Home
+          </NavLink>
+          <NavLink to="/perfil">
+            Perfil
+          </NavLink>
+        </Menu>
+      </Container>
     </TagHeader>
   );
 }
