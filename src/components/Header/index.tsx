@@ -4,7 +4,12 @@ import { LogoHeader, TagHeader, Container, Menu } from "./styles";
 
 import logoShowMeTheCode from '../../assets/logo-header-show-me-the-code.svg';
 
-export function Header(){
+interface linksMenu {
+  home?: string;
+  profile?: string;
+}
+
+export function Header({home, profile}: linksMenu){
   return (
     <TagHeader>
       <Container>
@@ -13,10 +18,10 @@ export function Header(){
         <Menu id="menu">
           <X size={20} color="white" className="closeMenu" />
           <NavLink to="/">
-            Home
+            {home ="Home"}
           </NavLink>
           <NavLink to="/perfil">
-            Perfil
+            {profile = "Profile"}
           </NavLink>
         </Menu>
       </Container>

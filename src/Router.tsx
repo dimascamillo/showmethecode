@@ -2,7 +2,7 @@ import { Routes, Route } from "react-router-dom";
 import { DefaultLayout } from "./layouts/DefaultLayout";
 import { Home } from "./pages/Home";
 import { Login } from "./pages/Login";
-import { Perfil } from "./pages/Perfil";
+import { Profile } from "./pages/Profile";
 
 export function Router() {
   return (
@@ -11,7 +11,7 @@ export function Router() {
       
       <Route path="/" element={<DefaultLayout />}>
         <Route path="/" element={<Home />} />
-        <Route path="/perfil" element={<Perfil />} />
+        <Route path="/profile" element={<Profile />} />
       </Route>
     </Routes>
   );

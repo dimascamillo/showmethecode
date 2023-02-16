@@ -24,8 +24,9 @@ export const defaultTheme = {
   'yellow-500': '#FBA94C',
 
   'display-flex-space-between': 'display: flex; justify-content: space-between; align-items: center;',
+  'display-flex-space-between-flex-start': 'display: flex; justify-content: space-between; align-items: flex-start;',
   'display-flex-flex-direction-column': 'display: flex; align-items: center; flex-direction: column;',
   'align-full-content': 'margin: auto;',
-  'container': "max-width: 40rem; margin: auto;",
+  'container': "max-width: 70rem; margin: auto;",
   'transition': "transition: .5s all",
 }

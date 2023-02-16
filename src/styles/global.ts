@@ -12,11 +12,13 @@ export const GlobalStyle = createGlobalStyle`
   body {
     background-color: ${(props) => props.theme['white']};
     color: ${(props) => props.theme['black-300']};
+    overflow: hidden;
   }
 
   body, input, textarea, button {
     font-family: 'Roboto', sans-serif;
     font-weight: 400;
     font-size: 1rem;
+    -webkit-font-smoothing: antialiased;
   }
 `

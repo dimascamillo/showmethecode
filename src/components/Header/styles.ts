@@ -20,7 +20,8 @@ export const LogoHeader = styled.img`
 export const Menu = styled.nav`
  position: absolute;
  top: 0;
- right: -300px;
+ right: 0;
+ visibility: hidden;
  width: 15rem;
  height: 100%;
  background-color: ${props => props.theme["gray-600"]};
@@ -41,20 +42,6 @@ export const Menu = styled.nav`
 
  a:hover {
   border-bottom: 2px solid ${props => props.theme["green-700"]};
- }
-
- .closeMenu {
-  position: absolute;
-  top: 8px;
-  right: 15px;
- }
-
- .on {
-  right: 0;
- }
-
- .off {
-  right: -300px;
  }
 
 `
