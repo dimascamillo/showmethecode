@@ -73,7 +73,7 @@ export function Home({ titleProfile }: PropsHome) {
               </AuthorInfo>
             </Author>
 
-            <Time dateTime="2023-02-17 09:34" title="17 de fevereiro às 09:34">Publicado há 1h</Time>
+            <Time dateTime="2023-02-17 09:40" title="17 de fevereiro às 09:34">Publicado há 1h</Time>
           
             <Content>
               <TitlePost>{Posts.title}</TitlePost>
