@@ -59,8 +59,11 @@ export const Avatar = styled.div<StatusProps>`
   margin-top: -1.80rem;
 
   img {
+    width: calc(3rem + 12px);
+    height: calc(3rem + 12px);
     border-radius: 8px;
-    border: 2px solid ${(props) => props.theme[STATUS_COLORS[props.statusColor]]};
+    border: 4px solid ${(props) => props.theme[STATUS_COLORS[props.statusColor]]};
+    outline: 2px solid ${props => props.theme["green-500"]};
   }
 `
 export const ProfileTitle = styled.span`
@@ -81,21 +84,6 @@ export const Timeline = styled.section`
   width: 100%;
 `
 
-export const NewPost = styled.button`
-  cursor: pointer;
-  width: 8.125rem;
-  height: 2.8125rem;
-  background-color: ${props => props.theme["purple-300"]};
-  color: ${props => props.theme.white};
-  font-size: .9375rem;
-  border: none;
-  ${props => props.theme.transition};
-
-  &:hover {
-    background-color: ${props => props.theme["red-500"]};
-  }
-`
-
 export const Post = styled.article`
   background-color: ${props => props.theme["gray-800"]};
   border-radius: 8px;
@@ -107,37 +95,70 @@ export const Post = styled.article`
 `
 
 export const PostHeader = styled.header`
-
+  ${props => props.theme["display-flex-space-between"]};
 `
 
 export const Author = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 1rem;
 
+  img {
+    width: calc(3rem + 12px);
+    height: calc(3rem + 12px);
+    border-radius: 8px;
+    border: 4px solid ${(props) => props.theme[STATUS_COLORS[props.statusColor]]};
+    outline: 2px solid ${props => props.theme["green-500"]};
+  }
 `
 
 export const AuthorInfo = styled.div`
-
+  display: flex;
+  flex-direction: column;
 `
 
 export const AuthorInfoName = styled.strong`
-
+  font-size: .875rem;
+  color: ${props => props.theme.white};
+  margin-top: 1rem;
+  margin-bottom: .5rem;
+  display: inline-block;
 `
 
 export const AuthorInfoRole = styled.span`
-
+  display: block;
+  font: .8125rem;
+  color: ${props => props.theme["gray-500"]};
 `
 
 export const Time = styled.time`
-
+  font: .8125rem;
+  color: ${props => props.theme["gray-300"]};
 `
 
 export const Content = styled.div`
-
+  line-height: 1.6;
+  color: ${props => props.theme["gray-300"]};
+  margin-top: 1.5rem;
 `
 
 export const TitlePost = styled.h2`
-
+  color: ${props => props.theme.white};
 `
 
 export const Pre = styled.pre`
+  position: relative;
+  margin-top: 1rem;
+  padding: 1rem;
+  background-color: ${props => props.theme["green-700"]};
+  border-radius: 8px;
+  min-height: 150px;
+  color: ${props => props.theme.white};
 
+  svg {
+    display: inline-block;
+    cursor: pointer;
+    position: absolute;
+    right: 20px;
+  }
 `

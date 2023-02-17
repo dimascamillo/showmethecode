@@ -6,7 +6,6 @@ import {
   Avatar,
   Content,
   Main,
-  NewPost,
   Post,
   PostHeader,
   Pre,
@@ -20,23 +19,26 @@ import {
 } from "./styles";
 
 import { NavLink } from "react-router-dom";
+import { Copy } from "phosphor-react";
+import { ButtonNewpost } from "../../components/ButtonNewpost";
+import { PostTimeline } from "../../components/PostTimeline";
 
 interface PropsHome {
   titleProfile: string;
+  newPost: string;
 }
 
 const Roles = {
   webDeveloper: "Web Developer",
-  backEndDeveloper: "Back End Developer"
+  backEndDeveloper: "Back End Developer",
 };
 
 const Posts = {
   id: 1,
-  title: "Alignt itens Center"
-}
+  title: "Align Div middle",
+};
 
-
-export function Home({ titleProfile }: PropsHome) {
+export function Home({ titleProfile, newPost }: PropsHome) {
   return (
     <Main>
       <ProfileCard>
@@ -60,7 +62,7 @@ export function Home({ titleProfile }: PropsHome) {
       </ProfileCard>
 
       <Timeline>
-        <NewPost>New Post</NewPost>
+        <ButtonNewpost />
 
         <Post>
           <PostHeader>
@@ -68,42 +70,26 @@ export function Home({ titleProfile }: PropsHome) {
               <img src="https://github.com/dimascamillo.png" />
 
               <AuthorInfo>
-                  <AuthorInfoName>{(titleProfile = "Dimas Camillo")}</AuthorInfoName>
-                  <AuthorInfoRole>{Roles.webDeveloper}</AuthorInfoRole>
+                <AuthorInfoName>
+                  {(titleProfile = "Dimas Camillo")}
+                </AuthorInfoName>
+                <AuthorInfoRole>{Roles.webDeveloper}</AuthorInfoRole>
               </AuthorInfo>
             </Author>
 
-            <Time dateTime="2023-02-17 09:40" title="17 de fevereiro às 09:34">Publicado há 1h</Time>
-          
-            <Content>
+            <Time dateTime="2023-02-17 09:40" title="17 de fevereiro às 09:34">
+              Publicado há 1h
+            </Time>
+          </PostHeader>
+          <Content>
               <TitlePost>{Posts.title}</TitlePost>
               <Pre>
                 margin: auto;
+                <Copy size={18} color="white" />
               </Pre>
-            </Content>
-          </PostHeader>
-        </Post>
+          </Content>
 
-        <Post>
-          <PostHeader>
-            <Author>
-              <img src="https://github.com/dimascamillo.png" />
-
-              <AuthorInfo>
-                  <AuthorInfoName>{(titleProfile = "Dimas Camillo")}</AuthorInfoName>
-                  <AuthorInfoRole>{Roles.webDeveloper}</AuthorInfoRole>
-              </AuthorInfo>
-            </Author>
-
-            <Time dateTime="2023-02-17 09:34" title="17 de fevereiro às 09:34">Publicado há 1h</Time>
-          
-            <Content>
-              <TitlePost>{Posts.title}</TitlePost>
-              <Pre>
-                margin: auto;
-              </Pre>
-            </Content>
-          </PostHeader>
+          <PostTimeline />
         </Post>
       </Timeline>
     </Main>
