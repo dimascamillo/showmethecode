@@ -22,6 +22,7 @@ import { NavLink } from "react-router-dom";
 import { Copy } from "phosphor-react";
 import { ButtonNewpost } from "../../components/ButtonNewpost";
 import { PostTimeline } from "../../components/PostTimeline";
+import { CommentPost } from "../../components/CommentPost";
 
 interface PropsHome {
   titleProfile: string;
@@ -90,6 +91,8 @@ export function Home({ titleProfile, newPost }: PropsHome) {
           </Content>
 
           <PostTimeline />
+          
+          <CommentPost />
         </Post>
       </Timeline>
     </Main>
