@@ -14,7 +14,7 @@ export function Header({home, profile}: linksMenu){
     <TagHeader>
       <Container>
         <LogoHeader src={logoShowMeTheCode}/>
-        <List size={20} color="white" />
+        <List size={35} color="white" />
         <Menu id="menu">
           <X size={20} color="white" className="closeMenu" />
           <NavLink to="/">

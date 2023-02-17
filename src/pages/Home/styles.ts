@@ -3,10 +3,11 @@ import styled from "styled-components";
 export const Main = styled.main`
   margin-top: 1.25rem;
   ${props => props.theme["display-flex-space-between-flex-start"]};
+  gap: 1.875rem;
 `
 
 export const ProfileCard = styled.aside`
-  width: 14rem;
+  width: 20rem;
   border: 1px solid ${props => props.theme["gray-100"]};
   border-radius: 8px;
   ${props => props.theme["display-flex-flex-direction-column"]};
@@ -74,4 +75,69 @@ export const ProfileRole = styled.span`
   font-size: .75rem;
   color: ${(props) => props.theme["gray-500"]};
   text-align: center;
+`
+
+export const Timeline = styled.section`
+  width: 100%;
+`
+
+export const NewPost = styled.button`
+  cursor: pointer;
+  width: 8.125rem;
+  height: 2.8125rem;
+  background-color: ${props => props.theme["purple-300"]};
+  color: ${props => props.theme.white};
+  font-size: .9375rem;
+  border: none;
+  ${props => props.theme.transition};
+
+  &:hover {
+    background-color: ${props => props.theme["red-500"]};
+  }
+`
+
+export const Post = styled.article`
+  background-color: ${props => props.theme["gray-800"]};
+  border-radius: 8px;
+  padding: 2.5rem;
+
+  & + & {
+    margin-top: 2rem;
+  }
+`
+
+export const PostHeader = styled.header`
+
+`
+
+export const Author = styled.div`
+
+`
+
+export const AuthorInfo = styled.div`
+
+`
+
+export const AuthorInfoName = styled.strong`
+
+`
+
+export const AuthorInfoRole = styled.span`
+
+`
+
+export const Time = styled.time`
+
+`
+
+export const Content = styled.div`
+
+`
+
+export const TitlePost = styled.h2`
+
+`
+
+export const Pre = styled.pre`
+
 `
