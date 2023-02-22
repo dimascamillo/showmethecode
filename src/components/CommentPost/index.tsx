@@ -16,36 +16,45 @@ import {
   Thanks,
 } from "./styles";
 
+const comments = [1, 2, 3];
+
 export function CommentPost() {
   return (
-    <ContainerComment >
-      <AvatarTag src={"https://github.com/dimascamillo.png"}/>
+    <>
+      {comments.map((comment) => {
+        return (
+          <ContainerComment>
+            <AvatarTag src={"https://github.com/dimascamillo.png"} />
 
-      <CommentBox>
-        <CommentContent>
-          <Header>
-            <AuthorAndTime>
-              <Author>Dimas Camillo</Author>
+            <CommentBox>
+              <CommentContent>
+                <Header>
+                  <AuthorAndTime>
+                    <Author>Dimas Camillo</Author>
 
-              <Time>Cerca de 1h atrás</Time>
-            </AuthorAndTime>
+                    <Time>Cerca de 1h atrás</Time>
+                  </AuthorAndTime>
 
-            <ButtonDelete title="Dele comment">
-              <Trash size={24} />
-            </ButtonDelete>
-          </Header>
+                  <ButtonDelete title="Dele comment">
+                    <Trash size={24} />
+                  </ButtonDelete>
+                </Header>
 
-          <Comment>Thanks, great code!</Comment>
-        </CommentContent>
+                <Comment>Thanks, great code!</Comment>
+              </CommentContent>
 
-        <Footer>
-          <ButtonThanks>
-            <ThumbsUp />
-            <Thanks>Thanks</Thanks>
-            <CountLikes>20</CountLikes>
-          </ButtonThanks>
-        </Footer>
-      </CommentBox>
-    </ContainerComment>
+              <Footer>
+                <ButtonThanks>
+                  <ThumbsUp />
+                  <Thanks>Thanks</Thanks>
+                  <CountLikes>20</CountLikes>
+                </ButtonThanks>
+              </Footer>
+            </CommentBox>
+          </ContainerComment>
+        );
+      })}
+      ;
+    </>
   );
 }

@@ -39,19 +39,25 @@ export const ButtonSendoComment = styled.button`
   cursor: pointer;
   width: 8.125rem;
   height: 2.8125rem;
-  background-color: ${props => props.theme["purple-300"]};
+  background-color: ${props => props.theme["purple-100"]};
   color: ${props => props.theme.white};
   font-size: .9375rem;
   border: none;
   margin: 1rem 0;
   border-radius: 4px;
+  cursor: not-allowed;
+
+  &:not(:disabled) {
+    background-color: ${props => props.theme["purple-300"]};
+  }
 
   &:focus {
     outline: transparent;
     box-shadow: 0 0 0 2px ${props => props.theme["red-500"]};
   }
 
-  &:hover {
+  &:not(:disabled):hover {
     background-color: ${props => props.theme["red-500"]};
+    cursor: pointer;
   }
 `
