@@ -98,5 +98,3 @@ export const CountLikes = styled.span`
     padding: 0 .25rem;
   }
 `
-
-

@@ -1,6 +1,6 @@
 import { ThumbsUp, Trash } from "phosphor-react";
+import { AvatarTag } from "../AvatarTag";
 import {
-  Avatar,
   AuthorAndTime,
   Comment,
   CommentBox,
@@ -18,8 +18,8 @@ import {
 
 export function CommentPost() {
   return (
-    <ContainerComment>
-      <Avatar src="https://github.com/dimascamillo.png" />
+    <ContainerComment >
+      <AvatarTag src={"https://github.com/dimascamillo.png"}/>
 
       <CommentBox>
         <CommentContent>

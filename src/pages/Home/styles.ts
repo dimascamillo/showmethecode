@@ -30,13 +30,13 @@ export const ProfileCard = styled.aside`
   }
 `
 
-const STATUS_COLORS = {
+export const STATUS_COLORS = {
   yellow: 'yellow-500',
   green: 'green-500',
   red: 'red-500'
 } as const
 
-interface StatusProps {
+export interface StatusProps {
   statusColor: keyof typeof STATUS_COLORS;
 }
 
@@ -54,6 +54,16 @@ export const ProfileCardHeader = styled.header`
   }
 `
 
+export const Container = styled.div<StatusProps>`
+  img {
+    width: calc(3rem + 12px);
+    height: calc(3rem + 12px);
+    border-radius: 8px;
+    border: 3px solid ${(props) => props.theme[STATUS_COLORS[props.statusColor]]};
+    outline: 2px solid transparent;
+  }
+`
+
 export const Avatar = styled.div<StatusProps>`
   width: 3.75rem;
   margin-top: -1.80rem;
@@ -62,8 +72,8 @@ export const Avatar = styled.div<StatusProps>`
     width: calc(3rem + 12px);
     height: calc(3rem + 12px);
     border-radius: 8px;
-    border: 4px solid ${(props) => props.theme[STATUS_COLORS[props.statusColor]]};
-    outline: 2px solid ${props => props.theme["green-500"]};
+    border: 3px solid ${(props) => props.theme[STATUS_COLORS[props.statusColor]]};
+    outline: 2px solid transparent;
   }
 `
 export const ProfileTitle = styled.span`
@@ -82,6 +92,7 @@ export const ProfileRole = styled.span`
 
 export const Timeline = styled.section`
   width: 100%;
+  margin-bottom: 2rem;
 `
 
 export const Post = styled.article`
@@ -98,7 +109,7 @@ export const PostHeader = styled.header`
   ${props => props.theme["display-flex-space-between"]};
 `
 
-export const Author = styled.div`
+export const Author = styled.div<StatusProps>`
   display: flex;
   align-items: center;
   gap: 1rem;
@@ -108,7 +119,7 @@ export const Author = styled.div`
     height: calc(3rem + 12px);
     border-radius: 8px;
     border: 4px solid ${(props) => props.theme[STATUS_COLORS[props.statusColor]]};
-    outline: 2px solid ${props => props.theme["green-500"]};
+    outline: 2px solid transparent;
   }
 `
 

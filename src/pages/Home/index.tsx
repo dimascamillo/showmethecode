@@ -1,9 +1,13 @@
+import { format, formatDistanceToNow } from 'date-fns';
+import ptBR from 'date-fns/locale/pt-BR';
+
 import {
   Author,
   AuthorInfo,
   AuthorInfoName,
   AuthorInfoRole,
   Avatar,
+  Container,
   Content,
   Main,
   Post,
@@ -23,77 +27,121 @@ import { Copy } from "phosphor-react";
 import { ButtonNewpost } from "../../components/ButtonNewpost";
 import { PostTimeline } from "../../components/PostTimeline";
 import { CommentPost } from "../../components/CommentPost";
+import { AvatarTag } from "../../components/AvatarTag";
+import { TagAvatar } from "../../components/AvatarTag/styles";
 
 interface PropsHome {
   titleProfile: string;
   newPost: string;
 }
 
-const Roles = {
-  webDeveloper: "Web Developer",
-  backEndDeveloper: "Back End Developer",
-};
+const posts = [
+  {
+    id: 1,
+    author: {
+      avatarUrl: "https://github.com/dimascamillo.png",
+      name: "Dimas Camillo",
+      role: "Web Developer"
+    },
+    title: "Centrilize Content",
+    content: `
+      div {
+        margin: auto;
+      }
+    `,
+    publishedAt: new Date('2023-02-21 00:05:00')
+  },
+  {
+    id: 2,
+    author: {
+      avatarUrl: "https://github.com/brunarossi.png",
+      name: "Bruna Rossi",
+      role: "Web Developer"
+    },
+    title: "Align Text Midle",
+    content: `
+      p {
+        text-align: center;
+      }
+    `,
+    publishedAt: new Date('2023-02-22 14:32:00')
+  }
+];
 
-const Posts = {
-  id: 1,
-  title: "Align Div middle",
-};
 
-export function Home({ titleProfile, newPost }: PropsHome) {
+export function Home() {
+  
   return (
     <Main>
       <ProfileCard>
         <ProfileCardHeader>
           <img
-            src={
-              "https://images.unsplash.com/photo-1587620962725-abab7fe55159?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=300&q=80"
-            }
-          />
+            src="https://images.unsplash.com/photo-1587620962725-abab7fe55159?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=300&q=80"
+            />
 
-          <Avatar statusColor="green">
-            <img src={"https://github.com/dimascamillo.png"} />
+          <Avatar statusColor="yellow">
+            <AvatarTag src="https://github.com/dimascamillo.png"/>
           </Avatar>
 
-          <ProfileTitle>{(titleProfile = "Dimas Camillo")}</ProfileTitle>
+          <ProfileTitle>Dimas Camillo</ProfileTitle>
 
-          <ProfileRole>{Roles.webDeveloper}</ProfileRole>
+          <ProfileRole>Web Developer</ProfileRole>
 
           <NavLink to="/profile">Edit Profile</NavLink>
         </ProfileCardHeader>
       </ProfileCard>
 
       <Timeline>
-        <ButtonNewpost />
+        <>
+          <ButtonNewpost />
 
-        <Post>
-          <PostHeader>
-            <Author>
-              <img src="https://github.com/dimascamillo.png" />
+          {posts.map(post => {
+            const publishedDateFormatted = format(post.publishedAt, "d 'de' LLLL 'às' HH:mm'h'", {
+              locale: ptBR
+            })
 
-              <AuthorInfo>
-                <AuthorInfoName>
-                  {(titleProfile = "Dimas Camillo")}
-                </AuthorInfoName>
-                <AuthorInfoRole>{Roles.webDeveloper}</AuthorInfoRole>
-              </AuthorInfo>
-            </Author>
+            const publishedDateRelativeToNow = formatDistanceToNow(post.publishedAt, {
+              locale: ptBR,
+              addSuffix: true
+            })
 
-            <Time dateTime="2023-02-17 09:40" title="17 de fevereiro às 09:34">
-              Publicado há 1h
-            </Time>
-          </PostHeader>
-          <Content>
-              <TitlePost>{Posts.title}</TitlePost>
-              <Pre>
-                margin: auto;
-                <Copy size={18} color="white" />
-              </Pre>
-          </Content>
+            return (
+            <Post>
+              <PostHeader>
+                <Author statusColor="green">   
+                  <AvatarTag src={post.author.avatarUrl}/>
 
-          <PostTimeline />
-          
-          <CommentPost />
-        </Post>
+                  <AuthorInfo>
+                    <AuthorInfoName>
+                      {post.author.name}
+                    </AuthorInfoName>
+                    <AuthorInfoRole>{post.author.role}</AuthorInfoRole>
+                  </AuthorInfo>
+                </Author>
+
+                <Time dateTime={publishedDateFormatted} title={post.publishedAt.toISOString()}>
+                  {publishedDateRelativeToNow}
+                </Time>
+              </PostHeader>
+              <Content>
+                  <TitlePost>{post.title}</TitlePost>
+                  <Pre>
+                    {post.content}
+                    <Copy size={18} color="white" />
+                  </Pre>
+              </Content>
+
+              <PostTimeline />
+
+              <Container statusColor="red">
+                <CommentPost />
+              </Container>
+
+            </Post>
+            );
+          })}
+        </>
+        
       </Timeline>
     </Main>
   );
