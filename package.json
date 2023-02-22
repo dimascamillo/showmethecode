@@ -11,6 +11,7 @@
     "push": "git add . && git commit -m 'new features' && git push"
   },
   "dependencies": {
+    "date-fns": "^2.29.3",
     "phosphor-react": "^1.4.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
